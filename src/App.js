@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Notfound from './pages/NotFound';
 
-import './App.css';
+import './css/App.css';
 
 
 function App() {
