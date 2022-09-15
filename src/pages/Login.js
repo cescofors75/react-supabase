@@ -1,22 +1,23 @@
-import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
-import { supabase } from "../supabase/client";
+import { useState, useEffect } from "react"
+import {useNavigate} from 'react-router-dom'
+import { supabase } from "../supabase/client"
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("")
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     //e.preventDefault(); no refresh on submit
 
     try {
-      await supabase.auth.signIn({ email });
+      await supabase.auth.signIn({ email })
     } catch (error) {
-      console.log("error", error);
+      console.log("error", error)
     }
   };
     useEffect(() => {
         if (supabase.auth.user()) {
-            navigate('/');
+            navigate('/')
         }
     }, [navigate]);
 
@@ -36,4 +37,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Login
