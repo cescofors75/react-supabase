@@ -14,6 +14,7 @@ function Home () {
   return (
     <>
     <div>
+      <h1>OemApi</h1>
       <Search/>
       <TaskList />
         <button onClick={() => supabase.auth.signOut()}>Sign Out</button>

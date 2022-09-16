@@ -42,7 +42,7 @@ export const TaskContextProvider = ({ children }) => {
           if (error) {
             throw error;
           }
-          
+          console.log("original: ",data);
             let result = data.filter(
               (person, index) => index === data.findIndex(
                 other => person.oemnumbers === other.oemnumbers
