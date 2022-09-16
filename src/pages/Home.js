@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { supabase } from "../supabase/client"
 import {useNavigate} from 'react-router-dom'
-import TaskForm from "../components/TaskForm"
+import TaskList from "../components/TaskList"
 
 function Home () {
     const navigate = useNavigate()
@@ -21,7 +21,7 @@ function Home () {
     <h1>---------------------</h1>
         <button onClick={() => supabase.auth.signOut()}>Sign Out</button>
     </div>
-    <TaskForm />
+    <TaskList />
 
     </>
   );
