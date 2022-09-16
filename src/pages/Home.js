@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react"
+import  { useEffect } from "react"
 import { supabase } from "../supabase/client"
 import {useNavigate} from 'react-router-dom'
 import TaskList from "../components/TaskList"
@@ -15,7 +15,7 @@ function Home () {
     <>
     <div>
       <Search/>
-    <TaskList />
+      <TaskList />
         <button onClick={() => supabase.auth.signOut()}>Sign Out</button>
     </div>
     

@@ -18,12 +18,12 @@ export const useTasks = () => {
 
 export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
-    const [search, setSearch] = useState("");
-   // const [loading, setLoading] = useState(false);
+   
+    const [loading, setLoading] = useState(false);
    // const [adding, setAdding] = useState(false);
 
     const getTasks = async (done ) => {
-       // setLoading(true);
+        setLoading(true);
     
       // const user = supabase.auth.user();
     
@@ -32,27 +32,31 @@ export const TaskContextProvider = ({ children }) => {
         try {
           const { error, data } = await supabase
          
-
-            .from("oemean2023")
-           .select("id, oemnumbers, eancode")
+          .from("oemean2023")
+          .select("id, oemnumbers, eancode")
           .eq("oemnumbers",done)
-          .limit(10)
-  
-          //.distinct("oemnumbers");
           
-            //.order("id", { ascending: false });
+          //.limit(10)
+          //.order("id", { ascending: false });
     
           if (error) {
             throw error;
           }
-           console.log(data);
-          setTasks(data);
+          
+            let result = data.filter(
+              (person, index) => index === data.findIndex(
+                other => person.oemnumbers === other.oemnumbers
+                  && person.eancode === other.eancode
+              ));
+              console.log("filtered: ",result);
+              setTasks(result);
+          
         } catch (error) {
         //alert(error.error_description || error.message);
-        //console.log(error);
-        } /*finally {
+        
+        } finally {
           setLoading(false);
-        }*/
+        }
       
     }
      return (
@@ -61,7 +65,7 @@ export const TaskContextProvider = ({ children }) => {
             tasks,
             getTasks,
             
-            //loading,
+            loading,
             //adding,
             
           }}
