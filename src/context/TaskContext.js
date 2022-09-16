@@ -19,29 +19,31 @@ export const TaskContextProvider = ({ children }) => {
     const getTasks = async (done = false) => {
        // setLoading(true);
     
-       // const user = supabase.auth.user();
-    
+       const user = supabase.auth.user();
+       const value = 2
+    //console.log(user)
         try {
           const { error, data } = await supabase
-            .from("oemean2023")
-            .select("id, oemnumbers, eancode")
-            //.eq("id", value)
+            .from("tasks")
+            .select("id, name, done");
+            //.eq("id", done)
             //.eq("done", done)
             //.order("id", { ascending: false });
     
-          if (error) {
+         /* if (error) {
             throw error;
-          }
+          }*/
     
           setTasks(data);
         } catch (error) {
-          alert(error.error_description || error.message);
-        } finally {
+         alert(error.error_description || error.message);
+        //console.log(error);
+        }/* finally {
           //setLoading(false);
-        }
-      };
-
-    return (
+        }*/
+      
+    }
+     return (
         <TaskContext.Provider
           value={{
             tasks,

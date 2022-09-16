@@ -1,13 +1,13 @@
-
+import './css/App.css'
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import {useEffect} from 'react'
 import {supabase } from './supabase/client'
-
+import Navbar from "./components/Navbar";
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Notfound from './pages/NotFound'
 
-import './css/App.css'
+
 
 
 function App() {
@@ -25,13 +25,14 @@ function App() {
 
   return (
     <div className="App">
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Notfound/>} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
-
     </div>
+  
   );
 }
 

@@ -1,21 +1,25 @@
 import {useEffect} from 'react'
 import { useTasks} from '../context/TaskContext'
 
-function TaskList(){
+
+
+function TaskList(done=false){
     const {tasks, getTasks} = useTasks();
    
     
 
-    useEffect(() => {
-      getTasks()
-    }, [getTasks]);
-    
+    useEffect( () => {
+       getTasks(done)
+    }, [done]);
+   
     return <div>{
         tasks.map(task => (
-
+            
             <div key={task.id}>
-                <h3>{task.oemnumber}</h3>
-                <p>{task.eancode}</p>
+
+                <h3>{task.name}</h3>
+                <p>{task.done}</p>
+                
             </div>
         ))
     }</div>;   
@@ -28,10 +32,10 @@ function TaskList(){
 export default TaskList
 
 
-/*     tasks.map(task => (
-                <div key={task.id}>
-                    <p>{task.eancode}</p>
-                </div>
-            ))
-
-            */
+// Language: javascript
+// Path: src\components\TaskList.js
+// Compare this snippet from src\pages\Home.js:
+// import  { useState, useEffect } from "react"
+// import { supabase } from "../supabase/client"
+// import {useNavigate} from 'react-router-dom'
+// import TaskList from "../components/TaskList"
