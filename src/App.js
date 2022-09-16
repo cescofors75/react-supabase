@@ -1,26 +1,28 @@
 
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import {useEffect} from 'react';
-import {supabase } from './supabase/client';	
+import {Routes, Route, useNavigate} from 'react-router-dom'
+import {useEffect} from 'react'
+import {supabase } from './supabase/client'
 
-import Login from './pages/Login';
-import Home from './pages/Home';
-import Notfound from './pages/NotFound';
+import Login from './pages/Login'
+import Home from './pages/Home'
+import Notfound from './pages/NotFound'
 
-import './css/App.css';
+import './css/App.css'
 
 
 function App() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+
   useEffect(() => {
     supabase.auth.onAuthStateChange((_event, session) => {
       if(!session){
-        navigate('/login');
+        navigate('/login')
       }else{
-        navigate('/');
+        navigate('/')
       }
-    });
+    })
   }, [navigate]);
+
   return (
     <div className="App">
       <Routes>
@@ -33,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
