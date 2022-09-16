@@ -11,27 +11,35 @@ export const useTasks = () => {
   return context;
 };
 
+
+
+
+
+
 export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
+    const [search, setSearch] = useState("");
    // const [loading, setLoading] = useState(false);
    // const [adding, setAdding] = useState(false);
 
-    const getTasks = async (done = false) => {
+    const getTasks = async (done ) => {
        // setLoading(true);
     
       // const user = supabase.auth.user();
     
 
-   
+   console.log("done",done);
         try {
           const { error, data } = await supabase
-          // .from("tasks")
-          // .select("id, name, done");
+         
 
             .from("oemean2023")
            .select("id, oemnumbers, eancode")
-         //  .eq("oemnumbers", "2706087201000");
-            //.eq("done", done)
+          .eq("oemnumbers",done)
+          .limit(10)
+  
+          //.distinct("oemnumbers");
+          
             //.order("id", { ascending: false });
     
           if (error) {
