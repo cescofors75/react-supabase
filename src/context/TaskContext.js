@@ -13,33 +13,37 @@ export const useTasks = () => {
 
 export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
-    //const [loading, setLoading] = useState(false);
+   // const [loading, setLoading] = useState(false);
    // const [adding, setAdding] = useState(false);
 
     const getTasks = async (done = false) => {
        // setLoading(true);
     
-       const user = supabase.auth.user();
-       const value = 2
-    //console.log(user)
+      // const user = supabase.auth.user();
+    
+
+   
         try {
           const { error, data } = await supabase
-            .from("tasks")
-            .select("id, name, done");
-            //.eq("id", done)
+          // .from("tasks")
+          // .select("id, name, done");
+
+            .from("oemean2023")
+           .select("id, oemnumbers, eancode")
+         //  .eq("oemnumbers", "2706087201000");
             //.eq("done", done)
             //.order("id", { ascending: false });
     
-         /* if (error) {
+          if (error) {
             throw error;
-          }*/
-    
+          }
+           console.log(data);
           setTasks(data);
         } catch (error) {
-         alert(error.error_description || error.message);
+        //alert(error.error_description || error.message);
         //console.log(error);
-        }/* finally {
-          //setLoading(false);
+        } /*finally {
+          setLoading(false);
         }*/
       
     }

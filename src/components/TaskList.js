@@ -10,15 +10,17 @@ function TaskList(done=false){
 
     useEffect( () => {
        getTasks(done)
-    }, [done]);
+       // eslint-disable-next-line
+    }, []);
    
     return <div>{
         tasks.map(task => (
             
             <div key={task.id}>
 
-                <h3>{task.name}</h3>
-                <p>{task.done}</p>
+                
+                <h3>OEM Parts: {task.oemnumbers}</h3>
+                <p>EAN Code: {task.eancode}</p>
                 
             </div>
         ))
@@ -32,10 +34,6 @@ function TaskList(done=false){
 export default TaskList
 
 
-// Language: javascript
-// Path: src\components\TaskList.js
-// Compare this snippet from src\pages\Home.js:
-// import  { useState, useEffect } from "react"
-// import { supabase } from "../supabase/client"
-// import {useNavigate} from 'react-router-dom'
-// import TaskList from "../components/TaskList"
+/*<h3>{task.name}</h3>
+                <p>{task.done}</p>
+                */
