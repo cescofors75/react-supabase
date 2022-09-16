@@ -15,7 +15,7 @@ function Home () {
     <div>
       <h1>OemApi</h1>
       <input type="text" placeholder="Enter OEM part" />
-        <button>Info !!</button>
+        <button>Info !!!</button>
     </div>
     <div>
     <h1>---------------------</h1>
