@@ -6,10 +6,10 @@ import { useTasks} from '../context/TaskContext'
 export function Text() {
   const {Texto}= useTasks();
   
- if (!Texto){
+ if (Texto){
   return (
      <div>
-      Please see your email for a magic link to sign in
+      Please check your email. We've sent you a link in your email to sign in
       </div> );
 
  }else{
@@ -17,7 +17,7 @@ export function Text() {
   return (
     
     <div>
-    
+    xxxx
     </div>
   );
 

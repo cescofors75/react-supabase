@@ -9,7 +9,7 @@ import { useTasks } from "../context/TaskContext"
 
 function Login() {
   const [email, setEmail] = useState("")
-  const {Texto, setTexto} = useTasks()
+  const {setTexto} = useTasks()
   const navigate = useNavigate()
 
 
@@ -18,13 +18,14 @@ function Login() {
    e.preventDefault(); //no refresh on submit
    
     try {
+      await setTexto();
       await supabase.auth.signIn({ email })
       
     } catch (error) {
       console.log("error", error)
     }
-      setTexto()
-      console.log(Texto)
+    
+    
   };
   useEffect(() => {
     if (supabase.auth.user()) {
@@ -61,7 +62,7 @@ async function signInWithGithub (e) {
   return (
     <div className="container">
       
-    <div className="titleApp">Please sign in with Magic Mail</div>   
+    <div className="titleApp">Please sign in  (Magic Link)</div>   
 
     <div className="child">
     <form onSubmit={handleSubmit}>
@@ -72,7 +73,7 @@ async function signInWithGithub (e) {
         onChange={(e) => setEmail(e.target.value)}
         className="form-control"
       />
- <button  className="btn btn-primary"> Send Magic Mail</button>
+ <button  className="btn btn-primary"> Send Magic Link</button>
       
     </form>
    
