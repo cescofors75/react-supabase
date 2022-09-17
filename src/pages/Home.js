@@ -3,7 +3,7 @@ import { supabase } from "../supabase/client"
 import {useNavigate} from 'react-router-dom'
 import TaskList from "../components/TaskList"
 import Search from "../components/Search"
-import { Currency } from "../components/currency"
+import { Currency } from "../components/Currency"
 
 function Home () {
     const navigate = useNavigate()
