@@ -29,7 +29,7 @@ function Search() {
         onChange={(e) => setSearchOem(e.target.value)}
         required
         placeholder="Enter Oem part number"
-        class="form-control"
+        className="form-control"
       />
       
        

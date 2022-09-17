@@ -18,6 +18,7 @@ function Home() {
         <h1>OemApi</h1>
         <Search />
         <TaskList />
+         
         <Exchange />
         
         <button className="btn btn-primary btn-sm" onClick={() => supabase.auth.signOut()}>Sign Out</button>

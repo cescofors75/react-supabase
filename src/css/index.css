@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press Start 2P');
 
 @import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 body {
   margin: 0;
   font-family: source-code-pro,'Press Start 2P', 'Source Code Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,10 +18,6 @@ body {
 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 
 
@@ -48,6 +47,23 @@ img {
     /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
   }
 
+
+  .exchange{
+    background-color: rgb(44, 43, 92);
+    font-size: .9em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 10;
+    padding: 10;
+   
+    position: absolute;
+    top: 120px;
+    left: 10px;
+
+ 
+    /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+  }
+
   .titleApp{
     font-family: 'Press Start 2P', cursive;
     font-size: 2em;
@@ -59,4 +75,6 @@ img {
   
     
   }
+
+
 

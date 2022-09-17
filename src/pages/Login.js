@@ -6,7 +6,7 @@ import { supabase } from "../supabase/client"
 
 function Login() {
   const [email, setEmail] = useState("")
-  const [user, setUser] = useState(null);
+
   const navigate = useNavigate()
 
 
@@ -22,6 +22,8 @@ function Login() {
   };
   useEffect(() => {
     if (supabase.auth.user()) {
+     
+      
         navigate('/')
     }
 }, [navigate]);
@@ -52,29 +54,31 @@ async function signInWithGithub (e) {
   
 
   return (
-    <div class="container">
+    <div className="container">
       
-      <div class="titleApp">Please sign in with Magick Mail</div>        
-      <div class="child">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-          class="form-control"
-        />
+    <div className="titleApp">Please sign in with Magic Mail</div>   
 
-        
-      </form>
-      <button  class="btn btn-primary">Send Magick Mail</button>
-      </div>
-      <div class="child"> <div class="titleApp">o </div></div>
-      <div class="child">
-      <img src='../images/github_logo.png' width="50" height="50" alt='github' onClick={signInWithGithub}/>
-      </div>
+    <div className="child">
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        placeholder="Enter your email"
+        name="email"
+        onChange={(e) => setEmail(e.target.value)}
+        className="form-control"
+      />
+
+      
+    </form>
+    <button  className="btn btn-primary">Send Magic Mail</button>
     
     </div>
+    <div className="child"> <div className="titleApp">o </div></div>
+    <div className="child">
+    <img src='../images/github_logo.png' width="50" height="50" alt='github' onClick={signInWithGithub}/>
+    </div>
+  
+  </div>
   );
 }
 

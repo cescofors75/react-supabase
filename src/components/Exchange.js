@@ -16,13 +16,18 @@ export function Exchange() {
     }, []);
 
     return (
-        <div>
+        
+        
+
+        <div  className='exchange'>
             <h3>Exchange Rates</h3>
             <p>1 EUR = {currency.USD} USD</p>
             <p>1 EUR = {currency.GBP} GBP</p>
             <p>1 EUR = {currency.JPY} JPY</p>
             <p>1 EUR = {currency.CNY} CNY</p>
-        </div>
+        
+       </div>
+    
     );
 
   
