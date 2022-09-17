@@ -17,7 +17,7 @@ export function Currency() {
 
     return (
         <div>
-            <h2>Exchange Rates</h2>
+            <h3>Exchange Rates</h3>
             <p>1 EUR = {currency.USD} USD</p>
             <p>1 EUR = {currency.GBP} GBP</p>
             <p>1 EUR = {currency.JPY} JPY</p>
@@ -26,6 +26,7 @@ export function Currency() {
     );
 
   
+
 
 
 }      
