@@ -1,13 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Source Code Pro');
+@import url('https://fonts.googleapis.com/css2?family=Press Start 2P');
+
+@import 'bootstrap/dist/css/bootstrap.min.css';
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: source-code-pro,'Press Start 2P', 'Source Code Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(22, 22, 110);
+  color: aliceblue;
+  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+img {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  }
+
+  .container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(22, 22, 110);
+    color: aliceblue;
+
+  }
+  
+  .child{
+    position: relative;
+    top: 0;
+    left: 0;
+ 
+    /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+  }
+
+  .titleApp{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  
+    
+  }
+

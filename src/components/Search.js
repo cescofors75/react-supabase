@@ -19,7 +19,7 @@ function Search() {
   };
 
   return (
-    
+    <div>
     <form onSubmit={handleSubmit}>
 
       <input
@@ -29,7 +29,7 @@ function Search() {
         onChange={(e) => setSearchOem(e.target.value)}
         required
         placeholder="Enter Oem part number"
-      
+        class="form-control"
       />
       
        
@@ -38,7 +38,7 @@ function Search() {
         </button>
         
     </form>
-    
+    </div>
   );
 }
 
