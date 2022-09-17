@@ -20,7 +20,14 @@ export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
    
     const [loading, setLoading] = useState(false);
-   
+    const [Texto, setTextoo] = useState(true);
+
+
+    const setTexto = async () => {
+     console.log("Texto", Texto)
+      setTextoo(false)
+      console.log("Texto", Texto)
+    }
 
     const getTasks = async (ref ) => {
         setLoading(true);
@@ -60,12 +67,17 @@ export const TaskContextProvider = ({ children }) => {
         }
       
     }
+
+
+ 
+
      return (
         <TaskContext.Provider
           value={{
             tasks,
             getTasks,
-            
+            Texto,
+            setTexto,
             loading,
            // adding,
             

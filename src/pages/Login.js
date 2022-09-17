@@ -1,30 +1,35 @@
 import { useState, useEffect } from "react"
 import {useNavigate} from 'react-router-dom'
 import { supabase } from "../supabase/client"
+import Text from "../components/Text"
+import { useTasks } from "../context/TaskContext"
+
 
 
 
 function Login() {
   const [email, setEmail] = useState("")
-
+  const {Texto, setTexto} = useTasks()
   const navigate = useNavigate()
 
 
 
   const handleSubmit = async (e) => {
    e.preventDefault(); //no refresh on submit
-
+   
     try {
       await supabase.auth.signIn({ email })
+      
     } catch (error) {
       console.log("error", error)
     }
+      setTexto()
+      console.log(Texto)
   };
   useEffect(() => {
     if (supabase.auth.user()) {
-     
-      
-        navigate('/')
+      navigate('/')
+    
     }
 }, [navigate]);
 /*
@@ -67,11 +72,11 @@ async function signInWithGithub (e) {
         onChange={(e) => setEmail(e.target.value)}
         className="form-control"
       />
-
+ <button  className="btn btn-primary"> Send Magic Mail</button>
       
     </form>
-    <button  className="btn btn-primary">Send Magic Mail</button>
-    
+   
+    < Text/>
     </div>
     <div className="child"> <div className="titleApp">o </div></div>
     <div className="child">
