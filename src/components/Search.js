@@ -4,10 +4,10 @@ import { useTasks } from "../context/TaskContext";
 
 function Search() {
   const [searchOem, setSearchOem] = useState("");
-  const {getTasks} = useTasks();
+  const {getTasks, loading} = useTasks();
   
   const handleSubmit = async (e) => {
-   console.log("Oem",searchOem);
+  
     e.preventDefault();
     try {
       await getTasks(searchOem);
@@ -32,10 +32,11 @@ function Search() {
       
       />
       
-        <button >
-         info
+       
+        <button disabled={loading} className="btn btn-primary btn-sm">
+          {loading ? "Loading..." : "Search"}
         </button>
-      
+        
     </form>
     
   );

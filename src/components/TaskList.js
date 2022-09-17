@@ -3,14 +3,15 @@ import { useTasks} from '../context/TaskContext'
 
 
 
-export function TaskList({done="27060-87201"}) {
+export function TaskList({ref="27060-87201"}) {
     const {tasks, getTasks} = useTasks();
    
     
 
     useEffect( () => {
-       getTasks(done)
-       // eslint-disable-next-line
+       getTasks(ref)
+       // WARNING
+       // eslint-disable-next-line  
     }, []);
    
     return <div>{
@@ -34,6 +35,4 @@ export function TaskList({done="27060-87201"}) {
 export default TaskList
 
 
-/*<h3>{task.name}</h3>
-                <p>{task.done}</p>
-                */
+

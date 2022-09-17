@@ -20,21 +20,21 @@ export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
    
     const [loading, setLoading] = useState(false);
-   // const [adding, setAdding] = useState(false);
+   
 
-    const getTasks = async (done ) => {
+    const getTasks = async (ref ) => {
         setLoading(true);
     
       // const user = supabase.auth.user();
     
 
-   console.log("done",done);
+   
         try {
           const { error, data } = await supabase
          
           .from("oemean2023")
           .select("id, oemnumbers, eancode")
-          .eq("oemnumbers",done)
+          .eq("oemnumbers",ref)
           
           //.limit(10)
           //.order("id", { ascending: false });
@@ -42,13 +42,14 @@ export const TaskContextProvider = ({ children }) => {
           if (error) {
             throw error;
           }
-          console.log("original: ",data);
+         // console.log("original: ",data);
+         // delete duplicates from data.
             let result = data.filter(
               (person, index) => index === data.findIndex(
                 other => person.oemnumbers === other.oemnumbers
                   && person.eancode === other.eancode
               ));
-              console.log("filtered: ",result);
+             // console.log("filtered: ",result);
               setTasks(result);
           
         } catch (error) {
@@ -66,7 +67,7 @@ export const TaskContextProvider = ({ children }) => {
             getTasks,
             
             loading,
-            //adding,
+           // adding,
             
           }}
         >
