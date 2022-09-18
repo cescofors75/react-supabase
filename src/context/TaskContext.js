@@ -24,9 +24,9 @@ export const TaskContextProvider = ({ children }) => {
     const [Texto, setTextoo] = useState(false);
 
     const setTexto = async () => {
-      console.log("Texto", Texto)
+     
        setTextoo(true)
-       console.log("Texto", Texto)
+      
      }
 
     const getTasks = async (ref ) => {

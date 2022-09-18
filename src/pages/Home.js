@@ -15,7 +15,7 @@ function Home() {
   
   );
   const user =  supabase.auth.user();
-  console.log(user) 
+  
   let user_mail = user ? user.email : "guest";
   return (
       <div>
