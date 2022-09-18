@@ -17,7 +17,7 @@ export function Text() {
   return (
     
     <div>
-    xxxx
+    
     </div>
   );
 

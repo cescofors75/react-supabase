@@ -46,10 +46,25 @@ img {
  
     /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
   }
+.button {
+  background-color: rgb(22, 22, 110);
+  border: none;
+  color: aliceblue;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 9px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 2px solid #4CAF50;
+
+}
 
 
-  .exchange{
-    background-color: rgb(44, 43, 92);
+  .top{
+    background-color: rgb(22, 22, 110);
     font-size: .9em;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -57,9 +72,24 @@ img {
     padding: 10;
    
     position: absolute;
-    top: 120px;
-    left: 10px;
+    top: 0%;
+    left: 80%;
 
+ 
+    /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+  }
+  .exchange{
+ 
+    font-size: .9em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 10;
+    padding: 10;
+   
+    position: absolute;
+    top: 80%;
+    left:10%;
+    width: 90%;
  
     /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
   }
@@ -75,6 +105,45 @@ img {
   
     
   }
-
+  .search {
+    background-color: rgb(22, 22, 110);
+    border: none;
+    color: aliceblue;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 9px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid #4CAF50;
+    width: 500px;
+  
+  }
+  .card{
+      
+    background-color: rgb(22, 22, 110);
+    
+      color: aliceblue;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 9px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 12px;
+      border: 2px solid #4CAF50;
+      width: 500px;
+      
+      
+      
+      
+      box-shadow: 0 0 10px rgb(255, 255, 255);
+      /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+    }
+    
+  
 
 

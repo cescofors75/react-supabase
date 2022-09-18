@@ -11,19 +11,29 @@ function Home() {
     if (!supabase.auth.user()) {
       navigate("/login");
     }
-  }, [navigate]);
-  return (
-    <>
-      <div>
-        <h1>OemApi</h1>
-        <Search />
-        <TaskList />
-         
-        <Exchange />
-        
-        <button className="btn btn-primary btn-sm" onClick={() => supabase.auth.signOut()}>Sign Out</button>
-      </div>
-    </>
+  }, [navigate]
+  
   );
-}
+  const user =  supabase.auth.user();
+  console.log(user) 
+  let user_mail = user ? user.email : "guest";
+  return (
+      <div>
+        <h1>Home</h1>
+        <div className='top'>
+        Welcome, {user_mail}
+
+        <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button>
+
+        </div>
+        <div><Search /></div>
+       
+        <TaskList />
+        <Exchange />
+
+      </div>
+  );
+  
+  }
+ 
 export default Home;

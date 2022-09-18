@@ -20,14 +20,14 @@ export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
    
     const [loading, setLoading] = useState(false);
+    
     const [Texto, setTextoo] = useState(false);
 
-
     const setTexto = async () => {
-     console.log("Texto", Texto)
-      setTextoo(true)
       console.log("Texto", Texto)
-    }
+       setTextoo(true)
+       console.log("Texto", Texto)
+     }
 
     const getTasks = async (ref ) => {
         setLoading(true);

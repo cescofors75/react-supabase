@@ -17,9 +17,10 @@ function Search() {
       console.log(error);
     }
   };
-
+  
   return (
-    <div>
+    <div className="search">
+    
     <form onSubmit={handleSubmit}>
 
       <input
