@@ -2,24 +2,74 @@
 
 import {useEffect, useState} from 'react'
 
-export function Exchange() {
+
+export  function Exchange() {
  
-    const [currency, setCurrency] = useState("");
+    const [currency, setCurrency] = useState([]);
     
-    useEffect(() => {
+    useEffect( () => {
         // GET request using fetch inside useEffect React hook
     const key=process.env.REACT_APP_EXCHANGERATEAPI_KEY
     const url = `https://v6.exchangerate-api.com/v6/${key}/latest/EUR`
-        fetch(url)
+    fetch(url)
             .then(response => response.json())
             .then(data => setCurrency(data.conversion_rates));
     }, []);
+ 
+    
+    let  list =[];
+   
+    for (let key in currency) {
+        list.push([key,currency[key]]);
+        
+    }
+  list.sort((a,b) =>{ return a[1]-b[1]})
+     
+
 
     return (
-        
-        
+        <div className='card'>
+            <h3>Exchange Rates 1€</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {list.map((item) => (
+                        <tr key={item[0]}>
+                            <td>{item[0]}</td>
+                            <td>{item[1]}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 
-        <div  className='exchange'>
+
+
+
+
+
+
+
+    
+
+  
+
+
+
+}      
+  
+
+
+export default Exchange
+
+/*
+        <div  className='card, exchange'>
             <marquee behavior="scroll" scrollamount="6" width="100%" direction="left" height="44px">
             
             1 EUR = {currency.USD} USD &nbsp;&nbsp;
@@ -87,15 +137,5 @@ export function Exchange() {
 
             </marquee>
        </div>
-    
-    );
 
-  
-
-
-
-}      
-  
-
-
-export default Exchange
+       */

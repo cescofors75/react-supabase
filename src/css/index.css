@@ -18,7 +18,19 @@ body {
 
 }
 
+th,td{
+  color: aliceblue;
+  background-color: rgb(22, 22, 110);
+  font-size: 2em;
+  font-family: 'Press Start 2P', 'Source Code Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+  text-align: center;
+  text-decoration: none;
+   
 
+}
 
 
 img {
@@ -54,7 +66,7 @@ img {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 9px;
+
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 12px;
@@ -87,9 +99,9 @@ img {
     padding: 10;
    
     position: absolute;
-    top: 80%;
-    left:10%;
-    width: 90%;
+    top: 96%;
+    left:1%;
+    width: 98%;
  
     /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
   }
@@ -113,7 +125,6 @@ img {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 9px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;

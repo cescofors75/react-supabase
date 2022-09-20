@@ -28,8 +28,8 @@ function Home() {
         </div>
         <div><Search /></div>
        
-        <TaskList />
-        <Exchange />
+        <div><TaskList /></div>
+        <div><Exchange /></div>
 
       </div>
   );
