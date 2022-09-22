@@ -20,7 +20,7 @@ export const TaskContextProvider = ({ children }) => {
     const [tasks, setTasks] = useState([]);
    
     const [loading, setLoading] = useState(false);
-    
+    const [adding, setAdding] = useState(false);
     const [Texto, setTextoo] = useState(false);
 
     const setTexto = async () => {
@@ -28,6 +28,61 @@ export const TaskContextProvider = ({ children }) => {
        setTextoo(true)
       
      }
+
+
+     const getProblems= async (done = false) => {
+      setLoading(true);
+  
+      const user = supabase.auth.user();
+  
+      try {
+        const { error, data } = await supabase
+          .from("tasks")
+          .select("id, name, done")
+          .eq("userId", user.id)
+          .eq("done", done)
+          .order("id", { ascending: false });
+  
+        if (error) {
+          throw error;
+        }
+  
+        setTasks(data);
+      } catch (error) {
+        alert(error.error_description || error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+
+
+
+     const createTask = async (taskName) => {
+      setAdding(true);
+      try {
+        const user = supabase.auth.user();
+  
+        const { error, data } = await supabase.from("tasks").insert({
+          name: taskName,
+          userId: user.id,
+        });
+  
+        setTasks([...tasks, ...data]);
+  
+        if (error) {
+          throw error;
+        }
+      } catch (error) {
+        alert(error.error_description || error.message);
+      } finally {
+        setAdding(false);
+      }
+    };
+
+
+
+
 
     const getTasks = async (ref ) => {
         setLoading(true);
@@ -76,10 +131,12 @@ export const TaskContextProvider = ({ children }) => {
           value={{
             tasks,
             getTasks,
+            getProblems,
+            createTask,
             Texto,
             setTexto,
             loading,
-           // adding,
+            adding,
             
           }}
         >

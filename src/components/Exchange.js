@@ -1,7 +1,7 @@
 
 
 import {useEffect,useState} from 'react'
-import getDataApi from './services/GetDataApi';
+import getDataApi from '../services/GetDataApi';
 
 
 export function Exchange() {

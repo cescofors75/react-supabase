@@ -3,7 +3,7 @@ import { useTasks} from '../context/TaskContext'
 
 
 
-export function TaskList({ref=""}) {
+export default  function TaskList({ref=""}) {
     const {tasks, getTasks} = useTasks();
    
     
@@ -13,8 +13,15 @@ export function TaskList({ref=""}) {
        // WARNING
        // eslint-disable-next-line  
     }, []);
+
+
    
-    return <div className='card'>{
+    
+   
+    return (
+        
+        <div className='card'>
+       {
         tasks.map(task => (
             
             <div key={task.id}>
@@ -25,14 +32,17 @@ export function TaskList({ref=""}) {
                 
             </div>
         ))
-    }</div>;   
+
+    
+    }</div>
+    )    
 }
 
-       
+      
            
     
 
-export default TaskList
+
 
 
 
