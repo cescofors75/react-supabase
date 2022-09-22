@@ -34,7 +34,8 @@ export const TaskContextProvider = ({ children }) => {
       setLoading(true);
   
       const user = supabase.auth.user();
-  
+      console.log (user)
+      if (user){
       try {
         const { error, data } = await supabase
           .from("tasks")
@@ -53,6 +54,7 @@ export const TaskContextProvider = ({ children }) => {
       } finally {
         setLoading(false);
       }
+    }
     };
 
 

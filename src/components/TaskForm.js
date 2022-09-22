@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useTasks } from "../context/TaskContext";
-import { useGeolocated } from "react-geolocated";
+
 function TaskForm() {
   const [taskName, setTaskName] = useState("");
   const { createTask, adding } = useTasks();
