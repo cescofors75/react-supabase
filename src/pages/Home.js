@@ -20,7 +20,7 @@ function Home() {
   
   let user_mail = user ? user.email : "guest";
   return (
-      <div className="container">
+      <div >
         <div className="space"> </div>
         <h1>Lloret No problems</h1>
         
