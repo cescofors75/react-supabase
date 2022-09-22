@@ -30,11 +30,46 @@ export const TaskContextProvider = ({ children }) => {
      }
 
 
-     const getProblems= async (done = false) => {
+     const getProblems= async (done = false,admin) => {
       setLoading(true);
   
       const user = supabase.auth.user();
       console.log (user)
+      
+      if (admin){
+
+        if (user){
+          try {
+            const { error, data } = await supabase
+              .from("tasks")
+              .select("id, name, done, created_at")
+              //.eq("userId", user.id)
+              .eq("done", done)
+              .order("id", { ascending: false });
+      
+            if (error) {
+              throw error;
+            }
+      
+            setTasks(data);
+          } catch (error) {
+            alert(error.error_description || error.message);
+          } finally {
+            setLoading(false);
+          }
+        }
+
+
+
+
+
+
+      }
+      
+      
+      
+      
+      else{
       if (user){
       try {
         const { error, data } = await supabase
@@ -55,7 +90,11 @@ export const TaskContextProvider = ({ children }) => {
         setLoading(false);
       }
     }
+  }
     };
+
+
+
 
 
 
@@ -133,12 +172,14 @@ export const TaskContextProvider = ({ children }) => {
           value={{
             tasks,
             getTasks,
+            
             getProblems,
             createTask,
             Texto,
             setTexto,
             loading,
             adding,
+            
             
           }}
         >

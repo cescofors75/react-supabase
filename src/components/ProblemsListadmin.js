@@ -6,7 +6,7 @@ function ProblemsList({ done = false }) {
   const { loading, getProblems, tasks } = useTasks();
 
   useEffect(() => {
-    getProblems(done,false);
+    getProblems(done,true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done]);
 

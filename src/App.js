@@ -6,7 +6,7 @@ import {supabase } from './supabase/client'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import Notfound from './pages/NotFound'
-
+import Admin from './pages/Admin'
 
 
 
@@ -30,6 +30,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/defaultsite" element={<Login />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
