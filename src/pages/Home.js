@@ -28,6 +28,7 @@ function Home() {
         <div className="space"> </div>
 
         <div><TaskForm /></div>
+        <div className="space"> </div>
         <div><ProblemsList /></div>
         <div className="space"> </div>
         <div> <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button></div>

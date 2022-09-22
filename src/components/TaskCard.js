@@ -14,7 +14,8 @@ function TaskCard({ task }) {
   return (
     <div className="card card-body">
       <h3 className="h5">
-        {task.id}. {task.name}
+        <p>Date: {task.created_at}</p>
+         Problem: {task.name}
       </h3>
       <span>{task.done ? "Done" : "Not done"}</span>
       <div className="ms-auto">

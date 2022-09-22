@@ -1,9 +1,12 @@
+
+import React from "react";
 import { useState } from "react";
 import { useTasks } from "../context/TaskContext";
-
+import { useGeolocated } from "react-geolocated";
 function TaskForm() {
   const [taskName, setTaskName] = useState("");
   const { createTask, adding } = useTasks();
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ function TaskForm() {
       console.log(error);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="card card-body">
@@ -27,7 +31,11 @@ function TaskForm() {
         placeholder="Write a problem"
         className="form-control"
       />
+    
       <div >
+        
+       
+
         <button disabled={adding} className="btn btn-primary btn-sm">
           {adding ? "Loading..." : "Add"}
         </button>
