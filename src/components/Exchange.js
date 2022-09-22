@@ -1,30 +1,20 @@
 
 
-import {useEffect, useState} from 'react'
+import {useEffect,useState} from 'react'
+import getDataApi from './services/GetDataApi';
 
 
-export  function Exchange() {
+export function Exchange() {
  
-    const [currency, setCurrency] = useState([]);
-    
+    const [list, setList] = useState([]);
     useEffect( () => {
-        // GET request using fetch inside useEffect React hook
-    const key=process.env.REACT_APP_EXCHANGERATEAPI_KEY
-    const url = `https://v6.exchangerate-api.com/v6/${key}/latest/EUR`
-    fetch(url)
-            .then(response => response.json())
-            .then(data => setCurrency(data.conversion_rates));
-    }, []);
+    // GET request using fetch inside useEffect React hook
+     getDataApi().then(data => setList( data));
+           
  
-    
-    let  list =[];
-   
-    for (let key in currency) {
-        list.push([key,currency[key]]);
-        
-    }
-  list.sort((a,b) =>{ return a[1]-b[1]})
-     
+ }, []);  
+
+ 
 
 
     return (
@@ -51,6 +41,7 @@ export  function Exchange() {
 
 
 
+    
 
 
 

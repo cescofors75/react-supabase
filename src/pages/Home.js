@@ -26,6 +26,8 @@ function Home() {
         <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button>
 
         </div>
+
+        
         <div><Search /></div>
        
         <div><TaskList /></div>

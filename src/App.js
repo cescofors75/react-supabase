@@ -39,6 +39,6 @@ function App() {
 
 export default App
 
-//https://react-supabase-git-list-cescofors75.vercel.app/
+
 
 
