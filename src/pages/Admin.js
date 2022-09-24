@@ -1,18 +1,24 @@
 
+import { useEffect } from "react";
 import { supabase } from "../supabase/client";
+import { useNavigate } from "react-router-dom";
+import ProblemsListAdmin from '../components/ProblemsListAdmin'
 
-import ProblemsList from '../components/ProblemsListadmin'
 
-function admin() {
-  /*const navigate = useNavigate();
+function Admin() {
+  const navigate = useNavigate();
   useEffect(() => {
     if (!supabase.auth.user()) {
       navigate("/login");
     }
   }, [navigate]
   
-  );*/
+  );
+
+  
+ 
   const user =  supabase.auth.user();
+
   
   let user_mail = user ? user.email : "guest";
   return (
@@ -24,7 +30,7 @@ function admin() {
         Welcome, {user_mail}
 
         <div className="space"> </div>
-        <div><ProblemsList /></div>
+        <div><ProblemsListAdmin /></div>
         <div className="space"> </div>
         <div> <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button></div>
 
@@ -35,7 +41,7 @@ function admin() {
   
   }
  
-export default admin;
+export default Admin;
 /*
  <div><TaskForm /></div>
 <div><ProblemsList /></div>

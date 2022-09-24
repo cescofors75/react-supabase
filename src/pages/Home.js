@@ -1,23 +1,30 @@
 import { useEffect } from "react";
 import { supabase } from "../supabase/client";
 import { useNavigate } from "react-router-dom";
-import TaskList from "../components/TaskList";
-import Search from "../components/Search";
+//import TaskList from "../components/TaskList";
+//import Search from "../components/Search";
 //import { Exchange } from "../components/Exchange";
 import TaskForm from "../components/TaskForm";
 import ProblemsList from '../components/ProblemsList'
 
+
 function Home() {
+  
+  
   const navigate = useNavigate();
   useEffect(() => {
+  
     if (!supabase.auth.user()) {
       navigate("/login");
     }
   }, [navigate]
   
   );
-  const user =  supabase.auth.user();
   
+  
+  const user =  supabase.auth.user();
+ 
+
   let user_mail = user ? user.email : "guest";
   return (
       <div >
@@ -30,6 +37,7 @@ function Home() {
 
         <div><TaskForm /></div>
         <div className="space"> </div>
+        
         <div><ProblemsList /></div>
         <div className="space"> </div>
         <div> <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button></div>

@@ -9,7 +9,7 @@ import { useTasks } from "../context/TaskContext"
 
 function Login() {
   const [mail, setEmail] = useState({})
-  const {setTexto} = useTasks()
+  const {FsetTexto} = useTasks()
   const navigate = useNavigate()
   const { loading, loginWithMagicLink } = useTasks();
 
@@ -18,7 +18,7 @@ function Login() {
    e.preventDefault(); //no refresh on submit
    
    loginWithMagicLink(mail);
-   setTexto(true)
+   FsetTexto(true)
     
   };
   useEffect(() => {

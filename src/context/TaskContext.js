@@ -21,27 +21,36 @@ export const TaskContextProvider = ({ children }) => {
    
     const [loading, setLoading] = useState(false);
     const [adding, setAdding] = useState(false);
-    const [Texto, setTextoo] = useState(false);
+    const [Texto, setTexto] = useState(false);
+    /*const [admin, setAdmin] = useState();*/
 
-    const setTexto = async () => {
+    const FsetTexto = async () => {
      
-       setTextoo(true)
+      await setTexto(true)
       
      }
-
+     /*
+     const FsetAdmin= async (p) => {
+     
+      await setAdmin(p)
+      console.log (p)
+     
+    }
+*/
 
      const getProblems= async (done = false,admin) => {
-      setLoading(true);
+     await  setLoading(true);
   
       const user = supabase.auth.user();
       console.log (user)
+      
       
       if (admin){
 
         if (user.email === "cescofors75@gmail.com"){
           try {
             const { error, data } = await supabase
-              .from("task")
+              .from("tasks")
               .select("id, name, done, created_at")
               //.eq("userId", user.id)
               .eq("done", done)
@@ -65,7 +74,7 @@ export const TaskContextProvider = ({ children }) => {
       if (user){
       try {
         const { error, data } = await supabase
-          .from("task")
+          .from("tasks")
           .select("id, name, done, created_at")
           .eq("userId", user.id)
           .eq("done", done)
@@ -110,7 +119,7 @@ export const TaskContextProvider = ({ children }) => {
       try {
         const user = supabase.auth.user();
   
-        const { error, data } = await supabase.from("task").insert({
+        const { error, data } = await supabase.from("tasks").insert({
           name: taskName,
           userId: user.id,
         });
@@ -129,7 +138,7 @@ export const TaskContextProvider = ({ children }) => {
 
 
 
-
+/*
 
     const getTasks = async (ref ) => {
         setLoading(true);
@@ -168,7 +177,7 @@ export const TaskContextProvider = ({ children }) => {
           setLoading(false);
         }
       
-    }
+    }*/
 
 
  
@@ -177,16 +186,17 @@ export const TaskContextProvider = ({ children }) => {
         <TaskContext.Provider
           value={{
             tasks,
-            getTasks,
+            //getTasks,
             
             getProblems,
             createTask,
             Texto,
-            setTexto,
+            FsetTexto,
             loading,
             adding,
             loginWithMagicLink,
-            
+            //admin,
+           // FsetAdmin,
             
           }}
         >
