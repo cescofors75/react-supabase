@@ -12,6 +12,7 @@ function Admin() {
       navigate("/login");
     }
   }, [navigate]
+
   
   );
 
@@ -25,7 +26,7 @@ function Admin() {
       <div >
         <div className="space"> </div>
         <h1>Lloret No problems</h1>
-        <h2>Admin Section</h2>
+        <h2>****Admin Section****</h2>
         
         Welcome, {user_mail}
 
