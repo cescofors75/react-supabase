@@ -1,10 +1,6 @@
-import { useEffect } from "react";
+
 import { supabase } from "../supabase/client";
-import { useNavigate } from "react-router-dom";
-import TaskList from "../components/TaskList";
-import Search from "../components/Search";
-//import { Exchange } from "../components/Exchange";
-import TaskForm from "../components/TaskForm";
+
 import ProblemsList from '../components/ProblemsListadmin'
 
 function admin() {

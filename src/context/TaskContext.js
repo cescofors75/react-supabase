@@ -38,10 +38,10 @@ export const TaskContextProvider = ({ children }) => {
       
       if (admin){
 
-        if (user){
+        if (user.email === "cescofors75@gmail.com"){
           try {
             const { error, data } = await supabase
-              .from("tasks")
+              .from("task")
               .select("id, name, done, created_at")
               //.eq("userId", user.id)
               .eq("done", done)
@@ -58,22 +58,14 @@ export const TaskContextProvider = ({ children }) => {
             setLoading(false);
           }
         }
-
-
-
-
-
-
       }
-      
-      
-      
+       
       
       else{
       if (user){
       try {
         const { error, data } = await supabase
-          .from("tasks")
+          .from("task")
           .select("id, name, done, created_at")
           .eq("userId", user.id)
           .eq("done", done)
@@ -94,6 +86,20 @@ export const TaskContextProvider = ({ children }) => {
     };
 
 
+    const loginWithMagicLink = async (email) => {
+      setLoading(true);
+      try {
+        const { error } = await supabase.auth.signIn({ email });
+        if (error) {
+          throw error;
+        }
+        //alert("check your email for the magic link");
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
 
 
@@ -104,7 +110,7 @@ export const TaskContextProvider = ({ children }) => {
       try {
         const user = supabase.auth.user();
   
-        const { error, data } = await supabase.from("tasks").insert({
+        const { error, data } = await supabase.from("task").insert({
           name: taskName,
           userId: user.id,
         });
@@ -179,6 +185,7 @@ export const TaskContextProvider = ({ children }) => {
             setTexto,
             loading,
             adding,
+            loginWithMagicLink,
             
             
           }}

@@ -2,14 +2,16 @@ import { useEffect } from "react";
 import { useTasks } from "../context/TaskContext";
 import TaskCard from "./TaskCard";
 
+
 function ProblemsList({ done = false }) {
   const { loading, getProblems, tasks } = useTasks();
 
-  useEffect(() => {
+  useEffect(()=>   {
+    
     getProblems(done,false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done]);
-
+ 
   function renderTasks() {
     if (loading) {
       return <p>Loading...</p>;

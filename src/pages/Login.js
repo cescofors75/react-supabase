@@ -8,23 +8,17 @@ import { useTasks } from "../context/TaskContext"
 
 
 function Login() {
-  const [email, setEmail] = useState("")
+  const [mail, setEmail] = useState({})
   const {setTexto} = useTasks()
   const navigate = useNavigate()
-
+  const { loading, loginWithMagicLink } = useTasks();
 
 
   const handleSubmit = async (e) => {
    e.preventDefault(); //no refresh on submit
    
-    try {
-      await setTexto();
-      await supabase.auth.signIn({ email })
-      
-    } catch (error) {
-      console.log("error", error)
-    }
-    
+   loginWithMagicLink(mail);
+   setTexto(true)
     
   };
   useEffect(() => {
@@ -67,13 +61,20 @@ async function signInWithGithub (e) {
     <div className="child">
     <form onSubmit={handleSubmit}>
       <input
-        type="email"
+        /*type="email"
         placeholder="Enter your email"
         name="email"
         onChange={(e) => setEmail(e.target.value)}
-        className="form-control"
+        className="form-control"*/
+        type="email"
+       // value={mail}
+        name="email"
+        onChange={(e) => setEmail(e.target.value)}
+        className="form-control mb-2"
+        placeholder="youremail@site.com"
+        required
       />
- <button  className="btn btn-primary"> Send Magic Link</button>
+ <button disabled={loading} className="btn btn-primary">  {loading ? "Loading..." : "Login"}</button>
       
     </form>
    
