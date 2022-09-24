@@ -89,7 +89,7 @@ export const TaskContextProvider = ({ children }) => {
     const loginWithMagicLink = async (email) => {
       setLoading(true);
       try {
-        const { error } = await supabase.auth.signIn({ email });
+        const { error } = await supabase.auth.signIn({ email ,createUser:false});
         if (error) {
           throw error;
         }
