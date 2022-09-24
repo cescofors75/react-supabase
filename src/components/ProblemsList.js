@@ -3,12 +3,12 @@ import { useTasks } from "../context/TaskContext";
 import TaskCard from "./TaskCard";
 
 
-function ProblemsList({ done = false }) {
+function ProblemsList({ done = false , valueAdmin}) {
   const { loading, getProblems, tasks } = useTasks();
 
   useEffect(()=>   {
     
-    getProblems(done,false);
+    getProblems(done,valueAdmin);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done]);
  

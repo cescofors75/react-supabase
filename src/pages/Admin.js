@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { supabase } from "../supabase/client";
 import { useNavigate } from "react-router-dom";
-import ProblemsListAdmin from '../components/ProblemsListAdmin'
+import ProblemsList from '../components/ProblemsList'
 
 
 function Admin() {
@@ -31,7 +31,7 @@ function Admin() {
         Welcome, {user_mail}
 
         <div className="space"> </div>
-        <div><ProblemsListAdmin /></div>
+        <div><ProblemsList valueAdmin={true }/></div>
         <div className="space"> </div>
         <div> <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button></div>
 
@@ -40,7 +40,7 @@ function Admin() {
       </div>
   );
   
-  }
+}
  
 export default Admin;
 /*
