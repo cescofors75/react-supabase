@@ -10,7 +10,7 @@ function ProblemsList({ done = false , valueAdmin}) {
     
     getProblems(done,valueAdmin);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [done]);
+  }, [done,valueAdmin]);
  
   function renderTasks() {
     if (loading) {

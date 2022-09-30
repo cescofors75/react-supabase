@@ -3,7 +3,7 @@ import { useTasks} from '../context/TaskContext'
 
 
 
-export default  function TaskList({ref=""}) {
+ function TaskList({ref=""}) {
     const {tasks, getTasks} = useTasks();
    
     
@@ -38,7 +38,7 @@ export default  function TaskList({ref=""}) {
     )    
 }
 
-      
+export default   TaskList     
            
     
 

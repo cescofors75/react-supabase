@@ -9,40 +9,41 @@ import { useTasks } from "../context/TaskContext"
 
 function Login() {
   const [mail, setEmail] = useState({})
-  const {FsetTexto} = useTasks()
+  const [mensaje, setMensaje]= useState('');
   const navigate = useNavigate()
-  const { loading, loginWithMagicLink } = useTasks();
+  const { loading, loginWithMagicLink, setTexto} = useTasks();
+   
+
+  useEffect(() => {
+    
+    if (supabase.auth.user()) {
+      navigate('/')
+    
+    }
+    
+}, [navigate]);
+
+
+
 
 
   const handleSubmit = async (e) => {
    e.preventDefault(); //no refresh on submit
    
    loginWithMagicLink(mail);
-   FsetTexto(true)
+
+   
+    
+    await setTexto(' Please check your email. We\'ve sent you a link in your email to sign in')
+    setMensaje('xxxxx');
+
+   
+   
+    
     
   };
-  useEffect(() => {
-    if (supabase.auth.user()) {
-      navigate('/')
-    
-    }
-}, [navigate]);
-/*
-useEffect(() => {
-  checkUser();
-  window.addEventListener('hashchange', function() {
-    checkUser();
-  });
-}, [])
 
 
-
-async function checkUser() {
-  const user = supabase.auth.user();
-  setUser(user);
-}
-
-*/
 async function signInWithGithub (e) {
   e.preventDefault(); //no refresh on submit
     await supabase.auth.signIn({
@@ -84,7 +85,7 @@ async function signInWithGithub (e) {
     <div className="child">
     <img src='../images/github_logo.png' width="50" height="50" alt='github' onClick={signInWithGithub}/>
     </div>
-  
+    <div>{mensaje}</div>
   </div>
   );
 }

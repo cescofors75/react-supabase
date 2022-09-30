@@ -21,38 +21,27 @@ export const TaskContextProvider = ({ children }) => {
    
     const [loading, setLoading] = useState(false);
     const [adding, setAdding] = useState(false);
-    const [Texto, setTexto] = useState(false);
-    /*const [admin, setAdmin] = useState();*/
+    const [Texto, setTexto] = useState('');
+   
 
-    const FsetTexto = async () => {
-     
-      await setTexto(true)
-      
-     }
-     /*
-     const FsetAdmin= async (p) => {
-     
-      await setAdmin(p)
-      console.log (p)
-     
-    }
-*/
-
-     const getProblems= async (done = false,admin) => {
-     await  setLoading(true);
+     const getProblems=  async (done = false,admin) => {
+      setLoading(true);
   
       const user = supabase.auth.user();
       console.log (user)
       
       
-      if (admin){
+      if (admin && user.email === "cescofors75@gmail.com"){
 
-        if (user.email === "cescofors75@gmail.com"){
+      
           try {
             const { error, data } = await supabase
               .from("tasks")
               .select("id, name, done, created_at")
-              //.eq("userId", user.id)
+              
+              //.eq("user_id", user.id)
+              
+              //.match({userId :true})
               .eq("done", done)
               .order("id", { ascending: false });
       
@@ -67,7 +56,7 @@ export const TaskContextProvider = ({ children }) => {
             setLoading(false);
           }
         }
-      }
+      
        
       
       else{
@@ -138,8 +127,8 @@ export const TaskContextProvider = ({ children }) => {
 
 
 
-/*
 
+/*
     const getTasks = async (ref ) => {
         setLoading(true);
     
@@ -190,8 +179,10 @@ export const TaskContextProvider = ({ children }) => {
             
             getProblems,
             createTask,
+            //getTasks,
             Texto,
-            FsetTexto,
+            
+           setTexto,
             loading,
             adding,
             loginWithMagicLink,

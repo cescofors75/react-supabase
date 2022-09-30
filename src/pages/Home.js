@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { supabase } from "../supabase/client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 //import TaskList from "../components/TaskList";
 //import Search from "../components/Search";
 //import { Exchange } from "../components/Exchange";
@@ -28,6 +28,9 @@ function Home() {
   let user_mail = user ? user.email : "guest";
   return (
       <div >
+         <Link to={`/admin`} className='link'>
+          Go to Admin
+        </Link>
         <div className="space"> </div>
         <h1>Lloret No problems</h1>
         
@@ -41,7 +44,7 @@ function Home() {
         <div><ProblemsList valueAdmin={false }/></div>
         <div className="space"> </div>
         <div> <button className=" button" onClick={() => supabase.auth.signOut()}>Sign Out</button></div>
-
+        
        
 
       </div>
@@ -51,7 +54,7 @@ function Home() {
  
 export default Home;
 /*
-<div><ProblemsList /></div>
+
 <div><Search /></div>
        
 <div><TaskList /></div>

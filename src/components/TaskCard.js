@@ -1,4 +1,6 @@
 import { useTasks } from "../context/TaskContext";
+import {Link} from 'react-router-dom'
+import '../css/index.css'
 
 function TaskCard({ task }) {
   const { deleteTask, updateTasks } = useTasks();
@@ -10,13 +12,17 @@ function TaskCard({ task }) {
   const handleToggleDone = async (id, doneState) => {
     await updateTasks(id, { done: !doneState });
   };
+  const id = task.id;
 
   return (
     <div className="card card-body">
+      
+       <Link to={`/detail/${id}`} className='link'>
       <h3 className="h5">
         <p>Date: {task.created_at}</p>
          Problem: {task.name}
       </h3>
+      </Link>
       <span>{task.done ? "Done" : "Not done"}</span>
       <div className="ms-auto">
         <button

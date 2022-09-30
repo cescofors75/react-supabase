@@ -24,6 +24,7 @@ function Admin() {
   let user_mail = user ? user.email : "guest";
   return (
       <div >
+         <button onClick={() =>  navigate(-1)}>Return</button>
         <div className="space"> </div>
         <h1>Lloret No problems </h1>
         <h2>****Admin Section****</h2>
