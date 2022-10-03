@@ -2,6 +2,7 @@ import { useTasks } from "../context/TaskContext";
 import {Link} from 'react-router-dom'
 import '../css/index.css'
 
+
 function TaskCard({ task }) {
   const { deleteTask, updateTasks } = useTasks();
 
@@ -13,13 +14,15 @@ function TaskCard({ task }) {
     await updateTasks(id, { done: !doneState });
   };
   const id = task.id;
-
+  const date= new Date(task.created_at);
+  
   return (
     <div className="card card-body">
       
-       <Link to={`/detail/${id}`} className='link'>
+       <Link to={`/detail/${id}`} className='linkCard'>
       <h3 className="h5">
         <p>Date: {task.created_at}</p>
+        <p>Date: {date.toDateString()}</p>
          Problem: {task.name}
       </h3>
       </Link>

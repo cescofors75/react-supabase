@@ -162,11 +162,15 @@ img {
       /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
     }
 
-    .link{
+    .linkCard{
       color: aliceblue;
       text-decoration: none;
     }
     
+    .linkCard:hover{
+      color: rgb(50, 51, 53);
+      text-decoration: none;
+    }
   
 
 
