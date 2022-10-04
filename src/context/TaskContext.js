@@ -125,6 +125,44 @@ export const TaskContextProvider = ({ children }) => {
       }
     };
 
+    const updateTasks = async (id, updatedFields) => {
+      try {
+        const user = supabase.auth.user();
+        const { error, data } = await supabase
+          .from("tasks")
+          .update(updatedFields)
+          .eq("userId", user.id)
+          .eq("id", id);
+        if (error) {
+          throw error;
+        }
+  
+        setTasks(tasks.filter((task) => task.id !== data[0].id));
+      } catch (error) {
+        alert(error.error_description || error.message);
+      }
+    };
+  
+    const deleteTask = async (id) => {
+      try {
+        const user = supabase.auth.user();
+  
+        const { error, data } = await supabase
+          .from("tasks")
+          .delete()
+          .eq("userId", user.id)
+          .eq("id", id);
+  
+        if (error) {
+          throw error;
+        }
+  
+        setTasks(tasks.filter((task) => task.id !== data[0].id));
+      } catch (error) {
+        alert(error.error_description || error.message);
+      }
+    };
+  
 
 
 
@@ -186,6 +224,8 @@ export const TaskContextProvider = ({ children }) => {
             loading,
             adding,
             loginWithMagicLink,
+            deleteTask,
+            updateTasks,
             //admin,
            // FsetAdmin,
             
